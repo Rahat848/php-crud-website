@@ -2,6 +2,7 @@
 include './dbconnect.php';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $name = ucwords($_POST['name']);
     $email = $_POST['email'];
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
@@ -14,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         header('Location: /php-crud-website?allreadyexists=true');
     } else {
         if ($password == $cpassword) {
-            $sql = "INSERT INTO `users` (`email`, `password`) VALUES ('$email', '$password')";
+            $sql = "INSERT INTO `users` (`name`, `email`, `password`) VALUES ('$name', '$email', '$password')";
             $insert = mysqli_query($connection, $sql);
             if ($insert) {
                 header('Location: /php-crud-website/partials/display.php');

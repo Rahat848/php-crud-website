@@ -12,10 +12,10 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 
-        <!-- jquery data tables css cdn -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.4.1/css/rowReorder.dataTables.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <!-- jquery data tables css cdn -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.4.1/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
 </head>
 
 <body>
@@ -40,8 +40,8 @@
         <thead>
             <tr>
                 <th>S.NO</th>
+                <th>Name</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Date</th>
                 <th>Action</th>
             </tr>
@@ -56,11 +56,11 @@
             //format date end
             echo "<tr>
         <td>" . $no . "</td>
+        <td>" . $user['name'] . "</td>
         <td>" . $user['email'] . "</td>
-        <td>" . $user['password'] . "</td>
         <td>" . $newDate . "</td>
         <td>
-<a href='/php-crud-website/partials/update.php?id=$user[id]&email=$user[email]&password=$user[password]'><button type='button' class='btn btn-warning'>Update</button></a>
+<a href='/php-crud-website/partials/update.php?id=$user[id]&name=$user[name]&email=$user[email]'><button type='button' class='btn btn-warning'>Update</button></a>
 <a href='/php-crud-website/partials/delete.php?id=$user[id]'><button type='button' class='btn btn-danger'>Delete</button></a>
         </td>
             </tr>";
@@ -71,6 +71,21 @@
         </tbody>
     </table>
 </div>';
+    } else {
+        echo '
+        <header class="bg-success text-center py-3">
+        <h1 class="fw-bold h3 text-white my-1">Users Data</h1>
+        </header>
+        <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">No Users Data Found</h5>
+          <p class="card-text">Please go back, and insert data. Thank You.</p>
+          <a href="/php-crud-website/" class="btn btn-primary">Go Back</a>
+        </div>
+        <div class="card-footer text-muted">
+        Please do not put your original email and password.
+        </div>
+      </div>';
     }
 
     ?>

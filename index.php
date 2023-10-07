@@ -14,16 +14,18 @@
 </head>
 
 <body>
-
     <header class="bg-success text-center py-3">
         <h1 class="fw-bold h3 text-white my-1">PHP CRUD WEBSITE</h1>
     </header>
-
+    <div class=" container-fluid my-2">
+        <a href="/php-crud-website/partials/display.php"><button type="button" class="btn btn-primary">Users Data</button></a>
+    </div>
     <!-- insert form starts -->
-    <div class="container my-3">
+    <div class="container my-2">
+    
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <div class="mb-3">
+                <div class="mb-2">
                     <h3 class="text-center">Insert Data</h3>
                 </div>
                 <?php
@@ -45,6 +47,10 @@
       ?>
                 <form action="./partials/insertdata.php" method="post" class="shadow p-4">
                     
+                    <div class="mb-3">
+                        <label for="name">Full Name</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" required>
+                    </div>
                     <div class="mb-3">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="email" required>
