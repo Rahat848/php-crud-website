@@ -24,7 +24,7 @@
                 <form method="post" action="" class="shadow p-4">                  
                     <div class="mb-3">
                         <label for="name">Full Name</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" value='.$name.' required>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Full Name" value="'.$name.'" required>
                     </div>
                     <div class="mb-3">
                         <label for="email">Email</label>
@@ -45,7 +45,7 @@
     </div>';
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            $name = $_POST['name'];
+            $name = ucwords($_POST['name']);
             $email = $_POST['email'];
             $password= $_POST['password'];
             $sql = "UPDATE `users` SET `name` = '$name', `email` = '$email',`password` = '$password' WHERE `users`.`id` = $id";
